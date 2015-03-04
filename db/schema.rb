@@ -37,13 +37,6 @@ ActiveRecord::Schema.define(version: 20150227044054) do
     t.datetime "updated_at",             null: false
   end
 
-  create_table "customers", force: :cascade do |t|
-    t.string   "first_name", limit: 255
-    t.string   "last_name",  limit: 255
-    t.datetime "created_at",             null: false
-    t.datetime "updated_at",             null: false
-  end
-
   create_table "order_products", force: :cascade do |t|
     t.integer "quantity",   limit: 4
     t.integer "product_id", limit: 4
@@ -74,9 +67,10 @@ ActiveRecord::Schema.define(version: 20150227044054) do
     t.decimal  "price",                                  precision: 8, scale: 2
     t.integer  "quantity",                 limit: 4
     t.integer  "status",                   limit: 4
+    t.integer  "recurring_billing",        limit: 4
+    t.decimal  "trial_price",                            precision: 8, scale: 2
     t.datetime "created_at",                                                                     null: false
     t.datetime "updated_at",                                                                     null: false
-    t.decimal  "trial_price",                            precision: 8, scale: 2
     t.boolean  "has_trial",                limit: 1,                             default: false
     t.integer  "trial_days",               limit: 4
     t.boolean  "is_recurring",             limit: 1,                             default: false
