@@ -14,4 +14,6 @@
 //= require jquery_ujs
 //= require jquery-1.11.0.min
 //= require bootstrap.min
-//= require product
+//= require batch
+//= require jquery.validate.min
+//= require_tree .

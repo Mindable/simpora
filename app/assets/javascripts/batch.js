@@ -13,7 +13,7 @@ $(document).ready(function(){
     }
   });
 
-  $('.single-product').on('click', '.product_is_recurring', function(e){
+  $('.bulk-products').on('click', '.product_is_recurring', function(e){
 
       var recurring = $(e.target);
 
@@ -39,7 +39,7 @@ $(document).ready(function(){
     }
   });
 
-  $('.single-product').on('click', '.product_trial', function(e){
+  $('.bulk-products').on('click', '.product_trial', function(e){
     var trial = $(e.target);
 
     if(this.checked){
@@ -52,7 +52,7 @@ $(document).ready(function(){
     }
   });
 
-  $('.single-product').on('change', '.product_recurring_type', function(e){
+  $('.bulk-products').on('change', '.product_recurring_type', function(e){
     var custom = $(e.target);
     if (custom.val() == "4"){
       custom.parent().find('.recurring_custom_bill_on').show('slow');

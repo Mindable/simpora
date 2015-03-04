@@ -1,0 +1,19 @@
+<div class="add-products">
+  <h2>Add Multiple Products</h2>
+  <div class="add-products-form">
+    <div id = "batch_product" class = "bulk-products">
+      <%= render  partial: "form"%>
+    </div> 
+  </div>
+  <div class="batch-wrapper">
+    <div class = "all-products">
+      <%= button_tag "Save all products", id: "save-all-products", onclick: "submitBatch();" %> 
+    </div>
+    <div class = "add-more-products">
+      <%= form_for :add_batch_products, url: add_batch_products_path, :remote => true  do |c| %>
+        <%= c.submit 'Add more products', class: "batch-btn"%>
+        <%= c.text_field :no_of_forms , value: 1, class: "no_of_forms"%>
+      <% end %>
+    </div>
+  </div>
+</div>

@@ -1,13 +1,55 @@
+<div class="listing-table">
+<%= link_to 'Add new product', new_product_path%>
+
 <h2>List of Products</h2>
-<table>
+
+
+<%= search_form_for @q do |f| %>
+  <div class="field">
+  </div>
+<table class="table table-striped table-bordered">
   <tr>
-    <th>Name</th>
-    <th colspan="2"></th>
+    <th><%= sort_link(@q, :name, 'Name') %></th>
+    <th><%= sort_link(@q, :price, 'Price') %></th>
+    <th><%= sort_link(@q, :status, 'Status') %></th>
+    <th><%= sort_link(@q, :is_recurring, 'Recurring') %></th>
+    <th><%= sort_link(@q, :has_trial, 'Trial') %></th>
+    <th colspan="2">Edit</th>
   </tr>
+  <tr>
+    <td><%= f.text_field :name_cont%></td>
+    <td><%= f.text_field :price_cont%></td>
+    <td><%= f.text_field :status_cont%></td>
+    <td><%= f.text_field :is_recurring_cont%></td>
+    <td><%= f.text_field :has_trial_cont%></td>
+  </tr>
+
+  <div class="actions">
+    <%= f.submit "search"%>
+  </div>
+<% end %>
  
   <% @products.each do |product| %>
-    <tr>
+    <% status = Product::STATUS_VALUES.key(product.status)%>
+    <% recurring = product.is_recurring? ? "yes" : "no" %>
+    <% trial = product.has_trial? ? "yes" : "no" %>  
+    <tr id = "product<%=product.id%>">
       <td><%= product.name %></td>
+      <td><%= number_to_currency(product.price) %></td>
+      <td><%= status %></td>
+      <td><%= recurring %></td>
+      <td><%= trial%></td>
+      <td><%= link_to 'Edit', edit_product_path(product) %></td>
+      <td><%= link_to 'Delete', product_path(product),
+              method: :delete,:remote => true,
+              data: { confirm: 'Are you sure?' } %></td>
     </tr>
   <% end %>
+  <div class="page_info">
+    <%= page_entries_info @products %>
+  </div>
 </table>
+  <div class="digg_pagination"> 
+    <%= will_paginate @products, :container => false %>
+  </div>
+</div>

@@ -11,7 +11,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20150225141238) do
+ActiveRecord::Schema.define(version: 20150227044054) do
 
   create_table "admins", force: :cascade do |t|
     t.string   "email",                  limit: 255, default: "", null: false
@@ -85,6 +85,7 @@ ActiveRecord::Schema.define(version: 20150225141238) do
     t.integer  "recurring_custom_type",    limit: 4
     t.string   "recurring_custom_bill_on", limit: 255
     t.text     "description",              limit: 65535
+    t.integer  "admin_id",                 limit: 4
   end
 
   create_table "users", force: :cascade do |t|

@@ -1,6 +1,5 @@
 Rails.application.routes.draw do
   
-
   devise_for :users, controllers: { 
     sessions: "users/sessions", 
     registrations: "users/registrations"
@@ -11,9 +10,30 @@ Rails.application.routes.draw do
     registrations: "admins/registrations"
   }
   
-  
-  resources :products
+  resources :admins do
+    
+    collection do
+      resources :products do 
+        
+        collection do 
+          get :batch_products
+        end
 
+        collection do
+          post :add_batch
+        end
 
-  root to: "welcome#show"
+        collection do
+          post :validate_batch
+        end
+        
+      end        
+    end
+
+    collection do
+      resources :categories
+    end   
+  end
+
+  root to: "products#index"
 end

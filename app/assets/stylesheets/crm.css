@@ -1,0 +1,357 @@
+.left-container {
+    margin-left: 30px;
+    float: left;
+    margin-top:20px; 
+  }
+
+.center-container {
+  float: left;
+  width: 300px;
+  margin-left: 30px;
+  margin-right: 30px;
+
+}
+
+.right-contianer {
+  float: right;
+    margin-right: 0;
+    position: relative;
+    width: 350px;
+}
+.add-products h2 {
+ text-align: center;
+  margin-bottom: 30px;
+}
+.add-products-form {
+  font-size: 14px;
+  padding: 20px;
+  display: inline-block;
+  margin-left: 15%;
+}
+
+.add-more-products {
+  margin-top: 20px;
+  text-align: center;
+}
+
+.product-button {
+  background: none repeat scroll 0 0 #5db327;
+  border-color: #5db327;
+  border-radius: 3px;
+  font-size: 14px;
+  margin-top: 20px;
+  width: 160px;
+}
+.no_of_forms {
+    width: 50px;
+    height: 30px;
+}
+.all-products{
+    float: left;
+    width: 152px;
+    margin-left: 200px;
+}
+.all-products button{
+   background: none repeat scroll 0 0 #5db327;
+    border-color: #5db327;
+    border-radius: 3px;
+    color: white;
+    font-size: 23px;
+    height: 37px;
+    margin-top: 20px;
+    width: 350px;
+}
+.save-category{
+  display: none;
+}
+.form-error {
+    border: 2px solid red !important;
+    box-shadow: none !important;
+}
+label.error {
+  display: none;
+}
+
+.bulk-products{
+
+}
+.product_name{
+   float: left;
+    width: 190px;
+}
+.product_price{
+  float: right;
+  width: 190px;
+}
+.product_category {
+}
+.product_category button {
+   background: none repeat scroll 0 0 #5db327;
+    border-color: #5db327;
+    border-radius: 3px;
+    color: white;
+    font-size: 23px;
+    height: 37px;
+    margin-top: 20px;
+    width: 160px;
+}
+
+.recuring-product {
+     position: absolute;
+}  
+.recuring-product input {
+  width: 10px;
+  float: left;
+  height:0px;
+}  
+.recuring-product label {
+  float: right;
+}
+.product_has_trial {
+   float: left;
+}
+.product_has_trial input{
+  float: left;
+}
+.product_has_trial  label {
+  float: right;
+}
+.recurring{
+   display: block;
+    width: 185px;
+}
+
+.product-save-button {
+    background: none repeat scroll 0 0 #5db327;
+    border-color: #5db327;
+    border-radius: 3px;
+    font-size: 14px;
+    margin-top: 20px;
+    width: 160px;
+}
+.bulk-product-forms{
+  background: none repeat scroll 0 0 #f0f0f0;
+  border: 1px solid #c8c8c8;
+  padding: 25px 10px 20px;
+  display: flex;
+  margin-top: 30px;
+}
+.new_single_product {
+  background: none repeat scroll 0 0 #fcfcfc;
+  display: table;
+  height: 100%;
+  margin-left: auto;
+  margin-right: auto;
+  padding: 60px 20px 20px 40px;
+  width: 500px;
+}
+.heading span {
+    font-size: 16px;
+    font-weight: bold;
+}
+.heading a {
+  background: none repeat scroll 0 0 #ffffff;
+  border: 1px solid #d9d9d9;
+  color: #256b31;
+  float: right;
+  font-size: 13px;
+  padding: 5px;
+  text-align: center;
+  width: 130px;
+}
+.new-product-form input {
+  border: 1px solid #d9d9d9;
+  border-radius: 0;
+  height: 40px;
+  padding-left: 15px;
+  width: 100%;
+}
+.product_new_name input {
+    margin-top: 20px;
+    width: 100%;
+}
+.product_new_description textarea {
+ border: 1px solid #c8c8c8;
+  border-radius: 0;
+  box-shadow: 1px 1px 1px rgba(0, 0, 0, 0.1) inset;
+  margin-top: 20px;
+  resize: none;
+  width: 100%;
+  padding-left: 15px;
+}
+.product_category select {
+     background: none repeat scroll 0 0 #fff;
+    border: 1px solid #d9d9d9;
+    box-shadow: 1px 1px 1px rgba(0, 0, 0, 0.1) inset;
+    height: 40px;
+    margin-top: 20px;
+    width: 100%;
+}
+.product_status select {
+  width: 100%;
+   background: none repeat scroll 0 0 #fff;
+    border: 1px solid #d9d9d9;
+    box-shadow: 1px 1px 1px rgba(0, 0, 0, 0.1) inset;
+    height: 40px;
+    margin-top: 20px;
+}
+.save-category button{
+background: none repeat scroll 0 0 #5db327;
+    border-color: #5db327;
+    border-radius: 3px;
+    color: white;
+    font-size: 20px;
+    height: 37px;
+    margin-top: 20px;
+    width: 160px;
+  }
+.check-margin{
+  float: left !important;
+  margin-left: 22px;
+
+}
+.product-check-box input {
+    width: 20px;
+}
+.product-check-box label {
+    bottom: 14px;
+    position: relative;
+}
+.trial-check-box{
+  bottom: 28px;
+  position: relative;
+}
+
+.save-product-btn{
+    background: none repeat scroll 0 0 #5db327;
+    border-color: #5db327;
+    border-radius: 3px;
+    color: white;
+    font-size: 23px;
+    height: 40px;
+    margin-top: 20px;
+    width: 400px;
+}
+.select-billing{
+  background: none repeat scroll 0 0 #fff;
+  border: 1px solid #d9d9d9;
+  box-shadow: 1px 1px 1px rgba(0, 0, 0, 0.1) inset;
+  height: 40px;
+  width: 100%;
+}
+.batch-name input {
+  border: 1px solid #c8c8c8;
+    border-radius: 0;
+    box-shadow: 1px 1px 1px rgba(0, 0, 0, 0.1) inset;
+    color: black;
+    display: inline;
+    height: 40px;
+    padding-left: 15px;
+    width: 170px;
+}
+.product_description textarea {
+  border: 1px solid #c8c8c8;
+    border-radius: 0;
+    box-shadow: 1px 1px 1px rgba(0, 0, 0, 0.1) inset;
+    margin-top: 20px;
+    resize: none;
+  }
+.select-status select{
+  margin-top: 0px;
+}
+.set-container{
+  bottom: 215px;
+  left: 40px;
+}  
+.left-container input {
+    border-radius: 0;
+    height: 30px;
+    padding-left: 10px;
+    width: 100%;
+    border: 1px solid #c8c8c8;
+}
+.batch-btn{
+ background: none repeat scroll 0 0 #5db327;
+    border-color: #5db327;
+    border-radius: 3px;
+    color: white;
+    font-size: 23px;
+    height: 37px;
+    margin-top: 20px;
+    width: 350px;
+}
+.custom-select select {
+  background: none repeat scroll 0 0 #fff;
+    border: 1px solid #d9d9d9;
+    box-shadow: 1px 1px 1px rgba(0, 0, 0, 0.1) inset;
+    height: 40px;
+    margin-top: 20px;
+    width: 100%;
+}
+.custom-select input {
+ border: 1px solid #d9d9d9;
+    border-radius: 0;
+    box-shadow: 1px 1px 1px rgba(0, 0, 0, 0.1) inset;
+    height: 40px;
+    margin-top: 20px;
+    padding-left: 15px;
+    width: 100%;
+}
+.custom-trial input {
+  border: 1px solid #d9d9d9;
+    border-radius: 0;
+    box-shadow: 1px 1px 1px rgba(0, 0, 0, 0.1) inset;
+    height: 40px;
+    margin-top: 20px;
+    padding-left: 15px;
+    width: 60%;
+}
+
+.batch-append {
+  background: none repeat scroll 0 0 whitesmoke;
+  display: inline-block;
+  margin-top: 20px;
+}
+.listing-table {
+    text-align: center;
+    margin-left: auto;
+    margin-right: auto;
+    margin-top: 20px;
+
+}
+ .listing-table a {
+    border-radius: 10px;
+    color: blue;
+    font-family: sans-serif;
+    font-size: 16px;
+    margin-top: 10px;
+    padding: 20px;
+    text-decoration: none;
+}
+.listing-table td {
+    line-height: 40px;
+    width: 130px;
+}
+.digg_pagination > a {
+    margin-top: 2px;
+}
+.digg_pagination {
+    left: 35%;
+    position: absolute;
+}
+.listing-table th {
+    text-align: center;
+}
+.trial-pr {
+    position: relative;
+    right: 110px;
+}
+.prt_trial{
+  width: 185px;
+  position: relative;
+  right: 0px;
+
+}
+.actions{
+  display: none;
+}

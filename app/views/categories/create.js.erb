@@ -1,0 +1,10 @@
+$('.save-category').hide();
+$('.product_category').show();
+$('.add_new_category').show();
+
+<% if @error.present?%>
+  $("#category_erros").append("<p><%= @error %></p>");
+
+<% else %>
+  $("#list_of_categories").append("<option value='<%=@category.id %>'><%= @category.name %><option>");
+<% end %>
