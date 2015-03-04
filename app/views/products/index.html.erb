@@ -12,10 +12,8 @@
     <th><%= sort_link(@q, :name, 'Name') %></th>
     <th><%= sort_link(@q, :price, 'Price') %></th>
     <th><%= sort_link(@q, :status, 'Status') %></th>
-
-    <th>Status</th>
-    <th>Recurring</th>
-    <th>Trial</th>
+    <th><%= sort_link(@q, :is_recurring, 'Recurring') %></th>
+    <th><%= sort_link(@q, :has_trial, 'Trial') %></th>
     <th colspan="2">Edit</th>
   </tr>
   <tr>
