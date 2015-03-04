@@ -78,8 +78,14 @@ $(document).ready(function(){
               }
             }
           },  
-          highlight: function(element) {
+          highlight: function(element) {            
             $(element).removeClass('label.error').addClass('form-error');
           },
+          // success: function(element) {
+          //    element.removeClass('form-error');
+          // }
+          unhighlight: function (element) {
+            $(element).removeClass('form-error');
+            },
         });
 });    

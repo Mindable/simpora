@@ -84,6 +84,9 @@ function submitBatch(){
       highlight: function(element) {
         $(element).removeClass('label.error').addClass('form-error');
       },
+      unhighlight: function (element) {
+        $(element).removeClass('form-error');
+      },
     });
     $(this).valid();
 
