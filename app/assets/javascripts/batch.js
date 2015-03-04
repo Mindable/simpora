@@ -74,14 +74,25 @@ $(document).ready(function(){
 
   $('.bulk-products').on('click', '.save-category-btn', function(e){
     var new_category = $(e.target);
-    var new_category_name = new_category.parent().find('.save-category-field').val();
-    $.ajax({
-      url: "/admins/categories",
-      type:"POST",
-      data: {"category": {"name": new_category_name}},
-      success: function(data) {
-      }
-    });
+    var new_category_name = new_category.parent().find('.save-category-field');
+    var category_select_parent = new_category.parent().parent().find('.product_category');
+    if (new_category_name.val() == ""){
+      new_category_name.addClass('form-error');
+    }
+    else{
+      $.ajax({
+        url: "/admins/categories",
+        type:"POST",
+        data: {"category": {"name": new_category_name.val()}},
+        success: function(data) {
+          $('.save-category').hide();
+          $('.product_category').show();
+          $('.add_new_category').show();
+          $(".list-of-categories").append("<option value="+data+">" + new_category_name.val()+ "<option>");
+          category_select_parent.find(".list-of-categories option[value="+data+"]").prop('selected', true);
+        }
+      });
+    }
   });
 
 
@@ -93,20 +104,37 @@ $(document).ready(function(){
   });
 
 
-  $('.single-product').on('click', '.save-category-btn', function(e){
+  $('.single-product').on('click', '.save-category-btn', function(e){  
     var new_category = $(e.target);
-    var new_category_name = new_category.parent().find('.save-category-field').val();
-    $.ajax({
-      url: "/admins/categories",
-      type:"POST",
-      data: {"category": {"name": new_category_name}},
-      success: function(data) {
-      }
-    });
+    var new_category_name = new_category.parent().find('.save-category-field');
+    var category_select_parent = new_category.parent().parent().find('.product_category');  
+    if (new_category_name.val() == ""){
+      new_category_name.addClass('form-error');
+    }
+    else{
+      $.ajax({
+        url: "/admins/categories",
+        type:"POST",
+        dataType:'json',
+        data: {"category": {"name": new_category_name.val()}},
+        success: function(data) {
+          $('.save-category').hide();
+          $('.product_category').show();
+          $('.add_new_category').show();
+          $(".list-of-categories").append("<option value="+data+">" + new_category_name.val()+ "<option>");
+          category_select_parent.find(".list-of-categories option[value="+data+"]").prop('selected', true);
+        }
+      });
+    }
   });
 
+  $('.single-product').on('keypress','.save-category-field', function(e){
+    $(this).removeClass('form-error');
+  });
 
-
+  $('.bulk-products').on('keypress','.save-category-field', function(e){
+    $(this).removeClass('form-error');
+  });
 
 });
 
