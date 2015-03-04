@@ -84,5 +84,29 @@ $(document).ready(function(){
     });
   });
 
+
+  $('.single-product').on('click', '.batch-new-category', function(e){
+    var category = $(e.target);
+    category.parent('.product_category').hide();
+    category.parent('.add_new_category').hide();
+    category.parent().siblings('.save-category').show();
+  });
+
+
+  $('.single-product').on('click', '.save-category-btn', function(e){
+    var new_category = $(e.target);
+    var new_category_name = new_category.parent().find('.save-category-field').val();
+    $.ajax({
+      url: "/admins/categories",
+      type:"POST",
+      data: {"category": {"name": new_category_name}},
+      success: function(data) {
+      }
+    });
+  });
+
+
+
+
 });
 

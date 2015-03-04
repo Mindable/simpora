@@ -19,13 +19,13 @@
 <div class = "center-container">
 
    <div class = "product_category">      
-      <%= f.select :category_ids, @categories.present? ? @categories.collect{|c| [c.name, c.id]} : "" , {prompt: "Category"}, id: "list_of_categories" %>
-      <%= button_tag("+Add new ",type: 'button', onClick: "addNewCategory(this)", id:"new-category")%> 
+      <%= f.select :category_ids, @categories.present? ? @categories.collect{|c| [c.name, c.id]} : "" , {prompt: "Category"}, id: "list_of_categories", class: "list-of-categories" %>
+      <%= button_tag("+Add new ",type: 'button', id:"new-category",class: "batch-new-category")%> 
    </div></br>
       
     <div class = "save-category">
-      <%= text_field_tag 'categories', nil, placeholder: 'Add new Category', id: "new-category-field" %>
-      <%= button_tag("Save Category ",type: 'button', onClick: "saveCategory()")%>
+      <%= text_field_tag 'categories', nil, placeholder: 'Add new Category', id: "new-category-field",class: "save-category-field" %>
+      <%= button_tag("Save Category ",type: 'button', class: "save-category-btn")%>
     </div>   
 
    <div class = "product_status">
