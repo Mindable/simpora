@@ -6,5 +6,5 @@ $('.add_new_category').show();
   $("#category_erros").append("<p><%= @error %></p>");
 
 <% else %>
-  $("#list_of_categories").append("<option value='<%=@category.id %>'><%= @category.name %><option>");
+  $(".list-of-categories").append("<option value='<%=@category.id %>'><%= @category.name %><option>");
 <% end %>

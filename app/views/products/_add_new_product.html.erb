@@ -1,5 +1,5 @@
 <div class = "new-product-form">
-<%= form_for :product, :html => {id: "batch-form-new", :class => "form-batch"}, url:  products_path do |f| %>
+<%= form_for @product, :html => {id: "batch-form-new", :class => "form-batch"}, url:  products_path do |f| %>
 <div class = "left-container">
    <div class = "product_new_name">
     <%= f.text_field :name , placeholder: "name"%>

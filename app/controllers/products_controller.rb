@@ -17,7 +17,8 @@ class ProductsController < AdminsController
 
   def edit
     @product = Product.find(params[:id])
-    @categories = Category.all 
+    @categories = Category.all
+    render 'new' 
   end
 
   def create 
