@@ -359,3 +359,6 @@ background: none repeat scroll 0 0 #5db327;
   width: 413px;
   height: 55px;
 }
+.check-box-update{
+  display: none;
+}

@@ -2,8 +2,10 @@
 <%= link_to 'Add new product', new_product_path%>
 <%= link_to 'View Categories', categories_path %>
 <h2>List of Products</h2>
-
-
+<div class="check-box-update">
+  <%= select_tag :status, options_for_select(Product::STATUS_VALUES), {prompt: "Change Status"} %>
+  <%= button_tag("Delete all Products ",type: 'button', class: "product-delete-btn")%>
+</div>
 <%= search_form_for @q do |f| %>
   <div class="field">
   </div>
@@ -36,7 +38,7 @@
     <% recurring = product.is_recurring? ? "yes" : "no" %>
     <% trial = product.has_trial? ? "yes" : "no" %>  
     <tr id = "product<%=product.id%>">
-      <td><%= check_box_tag 'remember_me', '1', false, :class => 'select-product' %></td>
+      <td><%= check_box_tag 'remember_me', "#{product.id}", false, :class => 'select-product' %></td>
       <td><%= product.name %></td>
       <td><%= number_to_currency(product.price) %></td>
       <td><%= status %></td>
@@ -48,6 +50,7 @@
               data: { confirm: 'Are you sure?' } %></td>
     </tr>
   <% end %>
+
   <div class="page_info">
     <%= page_entries_info @products %>
   </div>

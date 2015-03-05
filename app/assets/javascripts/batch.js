@@ -191,14 +191,17 @@ $(document).ready(function(){
 
     if(this.checked){
       $('.select-product').prop('checked', true);
+      $('.check-box-update').show('slow')
     }
     else{
       $('.select-product').prop('checked', false);
+      $('.check-box-update').hide('slow')
     }
   });
 
+  $('.listing-table').on('click', '.product-delete-btn', function(e){
+    var products = $(e.target);
 
-
+  });
 
 });
-
