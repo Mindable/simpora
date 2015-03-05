@@ -1,5 +1,8 @@
 $(document).ready(function(){
-
+  $("#product_search select").change(function(){
+    $(this).parents("form").submit();
+  })
+  
   $(".product_is_recurring").each(function (index){
     var recurring = $(this);
 

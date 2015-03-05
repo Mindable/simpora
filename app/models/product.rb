@@ -18,13 +18,13 @@ class Product < ActiveRecord::Base
 
 
 
-  def self.search(search)
-    if search
-      self.where("name like ?", "%#{search}%")
-    else
-      self.all
-    end
-  end
+  # def self.search(search)
+  #   if search
+  #     self.where("name like ?", "%#{search}%")
+  #   else
+  #     self.all
+  #   end
+  # end
 
   def is_recurring_billing?
     is_recurring?

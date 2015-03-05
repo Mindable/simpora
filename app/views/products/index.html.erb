@@ -19,9 +19,9 @@
   <tr>
     <td><%= f.text_field :name_cont%></td>
     <td><%= f.text_field :price_cont%></td>
-    <td><%= f.text_field :status_cont%></td>
-    <td><%= f.text_field :is_recurring_cont%></td>
-    <td><%= f.text_field :has_trial_cont%></td>
+    <td><%= f.select :status_eq, Product::STATUS_VALUES, include_blank: true%></td>
+    <td><%= f.select :is_recurring_eq, [['Yes', true], ['No', false]], include_blank: true %></td>
+    <td><%= f.select :has_trial_eq, [['Yes', true], ['No', false]], include_blank: true %></td>
   </tr>
 
   <div class="actions">
