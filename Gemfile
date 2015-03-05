@@ -37,6 +37,8 @@ gem 'devise', '~> 3.4.0'
 gem 'will_paginate', '~> 3.0.6'
 #search and sort table
 gem 'ransack'
+# for inline editing
+gem 'best_in_place', '~> 3.0.1'
 
 group :development, :test do
   # Call 'byebug' anywhere in the code to stop execution and get a debugger console

@@ -16,4 +16,5 @@
 //= require bootstrap.min
 //= require batch
 //= require jquery.validate.min
+//= require best_in_place
 //= require_tree .

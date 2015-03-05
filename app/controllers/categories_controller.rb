@@ -21,6 +21,18 @@ class CategoriesController < AdminsController
     end  
   end
 
+  def update
+    @category = Category.find(params[:id])
+
+    respond_to do |format|
+      if @category.update_attributes(category_params)
+        format.json { respond_with_bip(@category) }
+      else
+        format.json { respond_with_bip(@category) }
+      end
+    end
+  end
+    
   def destroy
     @category = Category.find(params[:id])
     @category.destroy

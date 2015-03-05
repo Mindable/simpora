@@ -1,5 +1,11 @@
 $(document).ready(function(){
 
+  // setup best in place
+  $(".best_in_place").best_in_place();
+  $('.edit-category').on('click', function() {
+    $('#best_in_place_category_' + $(this).data('id') + '_name').click();
+  });
+
   $(".product_is_recurring").each(function (index){
     var recurring = $(this);
 
