@@ -52,7 +52,7 @@
     <tr id = "category<%=category.id%>">
       <td><%= category.name %></td>
       <td><%= no_of_products%></td>
-      <td><%= link_to 'Edit', edit_category_path(category) %></td>
+      <td><%= link_to 'Edit', "" %></td>
       <td><%= link_to 'Delete', category_path(category),
               method: :delete,:remote => true,
               data: { confirm: 'Are you sure?' } %></td>
