@@ -1,21 +1,23 @@
 $(document).ready(function(){
     jQuery.validator.messages.required = "";
+    jQuery.validator.messages.number = "";
         $('#batch-form-new').validate({
           rules: {
             "product[name]": {
-                required: true
+              required: true
             },
             "product[description]": {
-                required: true
+              required: true
             },
             "product[price]": {
-                required: true
+              required: true,
+              number: true
             },
             "product[status]": {
-                required: true
+              required: true
             },
             "product[category_ids]": {
-                required: true
+              required: true
             },
             "product[recurring_type]": {
               required: function(element) {
@@ -38,6 +40,7 @@ $(document).ready(function(){
               }
             },
             "product[trial_price]": {
+              number: true,
               required: function(element) {
                 if ($('product[has_trial]:checked').length) {
                     return false;

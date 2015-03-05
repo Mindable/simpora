@@ -4,4 +4,5 @@ class Category < ActiveRecord::Base
   accepts_nested_attributes_for :products 
   
   validates :name, presence: true
+  validates :name, uniqueness: {case_insensitive: true, allow_blank: true}
 end
