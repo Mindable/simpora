@@ -90,9 +90,6 @@ $(document).ready(function(){
           $('.add_new_category').show();
           $(".list-of-categories").append("<option value="+data.id+">" + new_category_name.val()+ "<option>");
           category_select_parent.find(".list-of-categories option[value="+data.id+"]").prop('selected', true);
-        },
-        error: function (){
-          new_category_name.addClass('form-error');
         }
       });
     }

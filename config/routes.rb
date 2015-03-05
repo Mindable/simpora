@@ -11,28 +11,16 @@ Rails.application.routes.draw do
   }
   
   resources :admins do
-    
-    collection do
-      resources :products do 
-        
-        collection do 
-          get :batch_products
-        end
-
-        collection do
-          post :add_batch
-        end
-
-        collection do
-          post :validate_batch
-        end
-        
-      end        
-    end
-
     collection do
       resources :categories
-    end   
+      resources :products do 
+        collection do 
+          post :add_batch
+          get :batch_products
+          post :validate_batch
+        end
+      end        
+    end
   end
 
   root to: "products#index"
