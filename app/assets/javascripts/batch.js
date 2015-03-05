@@ -132,7 +132,6 @@ $(document).ready(function(){
 
   $('.listing-table').on('click', '.batch-new-category', function(e){
     var category = $(e.target);
-    category.hide();
     category.parent().find('.save-category').show();
     $('#myModal').modal('show')
   });
@@ -168,6 +167,32 @@ $(document).ready(function(){
   $('.bulk-products').on('keypress','.save-category-field', function(e){
     $(this).removeClass('form-error');
   });
+
+
+  $(".all-products").each(function (index){
+    var all_products = $(this);
+
+    if(this.checked){
+      all_products.parent().find('.select-product').prop('checked', true);
+    }
+    else{
+      all_products.parent().find('.select-product').prop('checked', false);
+    }
+  });
+
+  $('.listing-table').on('click', '.all-products', function(e){
+    var all_products = $(e.target);
+
+    if(this.checked){
+      $('.select-product').prop('checked', true);
+    }
+    else{
+      $('.select-product').prop('checked', false);
+    }
+  });
+
+
+
 
 });
 

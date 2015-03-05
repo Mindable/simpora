@@ -3,7 +3,7 @@ class CategoriesController < AdminsController
 
   def index
      products_count = params.fetch(:q, {}).fetch(:products_name_eq, nil)
-    if products_count
+    if products_count.present?
       category = Category.having_product_count_of(products_count)
       @q = category.search(products_count)
       @categories = @q.result.paginate(page: params[:page], per_page: 10).order("created_at DESC")
