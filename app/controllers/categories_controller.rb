@@ -3,7 +3,7 @@ class CategoriesController < AdminsController
 
   def index
     @q = Category.ransack(params[:q])
-    @categories = @q.result(distict: true).paginate(page: params[:page], per_page: 10)
+    @categories = @q.result(distict: true).paginate(page: params[:page], per_page: 10).order("created_at DESC")
   end
 
   def create

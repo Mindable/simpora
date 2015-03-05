@@ -1,12 +1,37 @@
 <div class="listing-table">
-<%= link_to 'Add new product', new_category_path%>
-<h2>List of Categories</h2>
+<%= link_to 'Add new product', new_product_path%>
+ 
 
+   <button class="btn btn-link batch-new-category" data-toggle="modal" data-target="#next" id="new-category" >
+    +Add New
+  </button>  
+
+  <div class="modal fade" id="next">
+  <div class="modal-dialog">
+    <div class="modal-content">
+      <div class="modal-header">
+        <button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">&times;</span></button>
+        <h4 class="modal-title">Add New Category</h4>
+      </div>
+      <div class="modal-body">
+        <div class = "save-category category-popup">
+          <%= text_field_tag 'categories', nil, placeholder: 'Add new Category', id: "new-category-field",class: "save-category-field" %>
+          <%= button_tag("Save Category ",type: 'button', class: "save-category-btn")%>
+        </div>
+      </div>
+      <div class="modal-footer">
+      </div>
+    </div><!-- /.modal-content -->
+  </div><!-- /.modal-dialog -->
+</div><!-- /.modal -->
+
+
+<h2>List of Categories</h2>
 
 <%= search_form_for @q do |f| %>
   <div class="field">
   </div>
-<table class="table table-striped table-bordered">
+<table class="table table-striped table-bordered categories-table">
   <tr>
     <th><%= sort_link(@q, :name, 'Name') %></th>
     <th><%= sort_link(@q, :products, 'No of products') %></th>

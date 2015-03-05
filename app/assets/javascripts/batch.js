@@ -134,6 +134,39 @@ $(document).ready(function(){
     }
   });
 
+
+
+  $('.listing-table').on('click', '.batch-new-category', function(e){
+    var category = $(e.target);
+    category.hide();
+    category.parent().find('.save-category').show();
+    $('#myModal').modal('show')
+  });
+
+  $('.listing-table').on('click', '.save-category-btn', function(e){  
+    var new_category = $(e.target);
+    var new_category_name = new_category.parent().find('.save-category-field'); 
+    if (new_category_name.val() == ""){
+      new_category_name.addClass('form-error');
+    }
+    else{
+      $.ajax({
+        url: "/admins/categories",
+        type:"POST",
+        dataType:'json',
+        data: {"category": {"name": new_category_name.val()}},
+        success: function(data) {
+          window.location.href = '/admins/categories/';     
+        },
+        error: function (){
+          new_category_name.addClass('form-error');
+        }
+      });
+    }
+  });
+
+
+
   $('.single-product').on('keypress','.save-category-field', function(e){
     $(this).removeClass('form-error');
   });
