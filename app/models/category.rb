@@ -5,4 +5,11 @@ class Category < ActiveRecord::Base
   
   validates :name, presence: true
   validates :name, uniqueness: {case_insensitive: true, allow_blank: true}
+
+  scope :having_product_count_of, ->(counter){
+    joins(:products).
+    group(:category_id).
+    having('count(category_id) = ?', counter)
+  }
+
 end

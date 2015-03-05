@@ -72,7 +72,7 @@ class ProductsController < AdminsController
     if @product.update(product_params)
       redirect_to products_path
     else
-      render 'edit'
+      render 'new'
     end
   end
 
