@@ -17,7 +17,8 @@ class ProductsController < AdminsController
 
   def edit
     @product = Product.find(params[:id])
-    @categories = Category.all 
+    @categories = Category.all
+    render 'new' 
   end
 
   def create 
@@ -71,7 +72,7 @@ class ProductsController < AdminsController
     if @product.update(product_params)
       redirect_to products_path
     else
-      render 'edit'
+      render 'new'
     end
   end
 

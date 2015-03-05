@@ -7,6 +7,7 @@ class Product < ActiveRecord::Base
   validates :recurring_type, :recurring_no_of_payments, presence: true, if: :is_recurring_billing?
   validates :recurring_custom_type, :recurring_custom_bill_on, presence: true, if: :is_recurring_custom_billing?
   validates :trial_price, :trial_days, presence: true, if: :free_trial_allowed?
+  validates :price, :trial_price, numericality: {allow_blank: true} 
 
   STATUS_VALUES = { active: 1, inactive: 2, archived: 3 }
   RECUURING_BILLING_TYPE = { :Weekly => 1,  :Monthly => 2, :Quaterly => 3, :Custom => 4}
@@ -17,13 +18,13 @@ class Product < ActiveRecord::Base
 
 
 
-  def self.search(search)
-    if search
-      self.where("name like ?", "%#{search}%")
-    else
-      self.all
-    end
-  end
+  # def self.search(search)
+  #   if search
+  #     self.where("name like ?", "%#{search}%")
+  #   else
+  #     self.all
+  #   end
+  # end
 
   def is_recurring_billing?
     is_recurring?

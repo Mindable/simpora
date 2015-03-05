@@ -64,4 +64,110 @@ $(document).ready(function(){
     }
   });
 
+  $('.bulk-products').on('click', '.batch-new-category', function(e){
+    var category = $(e.target);
+    category.parent('.product_category').hide();
+    category.parent('.add_new_category').hide();
+    category.parent().siblings('.save-category').show();
+  });
+
+
+  $('.bulk-products').on('click', '.save-category-btn', function(e){
+    var new_category = $(e.target);
+    var new_category_name = new_category.parent().find('.save-category-field');
+    var category_select_parent = new_category.parent().parent().find('.product_category');
+    if (new_category_name.val() == ""){
+      new_category_name.addClass('form-error');
+    }
+    else{
+      $.ajax({
+        url: "/admins/categories",
+        type:"POST",
+        data: {"category": {"name": new_category_name.val()}},
+        success: function(data) {
+          $('.save-category').hide();
+          $('.product_category').show();
+          $('.add_new_category').show();
+          $(".list-of-categories").append("<option value="+data.id+">" + new_category_name.val()+ "<option>");
+          category_select_parent.find(".list-of-categories option[value="+data.id+"]").prop('selected', true);
+        }
+      });
+    }
+  });
+
+
+  $('.single-product').on('click', '.batch-new-category', function(e){
+    var category = $(e.target);
+    category.parent('.product_category').hide();
+    category.parent('.add_new_category').hide();
+    category.parent().siblings('.save-category').show();
+  });
+
+
+  $('.single-product').on('click', '.save-category-btn', function(e){  
+    var new_category = $(e.target);
+    var new_category_name = new_category.parent().find('.save-category-field');
+    var category_select_parent = new_category.parent().parent().find('.product_category');  
+    if (new_category_name.val() == ""){
+      new_category_name.addClass('form-error');
+    }
+    else{
+      $.ajax({
+        url: "/admins/categories",
+        type:"POST",
+        dataType:'json',
+        data: {"category": {"name": new_category_name.val()}},
+        success: function(data) {
+          $('.save-category').hide();
+          $('.product_category').show();
+          $('.add_new_category').show();
+          $(".list-of-categories").append("<option value="+data.id+">" + new_category_name.val()+ "<option>");
+          category_select_parent.find(".list-of-categories option[value="+data.id+"]").prop('selected', true);
+        },
+      });
+    }
+  });
+
+
+
+  $('.listing-table').on('click', '.batch-new-category', function(e){
+    var category = $(e.target);
+    category.hide();
+    category.parent().find('.save-category').show();
+    $('#myModal').modal('show')
+  });
+
+  $('.listing-table').on('click', '.save-category-btn', function(e){  
+    var new_category = $(e.target);
+    var new_category_name = new_category.parent().find('.save-category-field'); 
+    if (new_category_name.val() == ""){
+      new_category_name.addClass('form-error');
+    }
+    else{
+      $.ajax({
+        url: "/admins/categories",
+        type:"POST",
+        dataType:'json',
+        data: {"category": {"name": new_category_name.val()}},
+        success: function(data) {
+          window.location.href = '/admins/categories/';     
+        },
+        error: function (){
+          new_category_name.addClass('form-error');
+        }
+      });
+    }
+  });
+
+
+
+  $('.single-product').on('keypress','.save-category-field', function(e){
+    $(this).removeClass('form-error');
+  });
+
+  $('.bulk-products').on('keypress','.save-category-field', function(e){
+    $(this).removeClass('form-error');
+  });
+
 });
+

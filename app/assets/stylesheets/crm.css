@@ -355,3 +355,7 @@ background: none repeat scroll 0 0 #5db327;
 .actions{
   display: none;
 }
+.category-popup input {
+  width: 413px;
+  height: 55px;
+}

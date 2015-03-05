@@ -3,22 +3,24 @@ function submitBatch(){
   batch['products'] = []
   $('.form-batch').each(function(){
     jQuery.validator.messages.required = "";
+    jQuery.validator.messages.number = "";
     $(this).validate({
       rules: {
         "product[name]": {
-        required: true
+          required: true
         },
         "product[description]": {
-        required: true,
+          required: true,
         },
         "product[price]": {
-        required: true
+          required: true,
+          number: true,
         },
         "product[status]": {
-        required: true
+          required: true
         },
         "product[category_ids]": {
-        required: true
+          required: true
         },
         "product[recurring_type]": {
           required: function(element) {
@@ -41,6 +43,7 @@ function submitBatch(){
           }
         },
         "product[trial_price]": {
+          number: true,
           required: function(element) {
             if ($('product[has_trial]:checked').length) {
                 return false;
@@ -48,7 +51,7 @@ function submitBatch(){
             else {
                 return true;
             }  
-          }
+          },
         },
         "product[trial_days]": {
           required: function(element) {
@@ -83,6 +86,9 @@ function submitBatch(){
       },  
       highlight: function(element) {
         $(element).removeClass('label.error').addClass('form-error');
+      },
+      unhighlight: function (element) {
+        $(element).removeClass('form-error');
       },
     });
     $(this).valid();
@@ -122,22 +128,6 @@ function submitBatch(){
   });
 }
 
-function addNewCategory(add_new) {
-  $(add_new).parent('.product_category').hide();
-  $(add_new).parent('.add_new_category').hide();
-  $(add_new).parent().siblings('.save-category').show();
-}
-
-function saveCategory() {
-  var new_category = $("#new-category-field").val();
-  $.ajax({
-      url: "/admins/categories",
-      type:"POST",
-      data: {"category": {"name": new_category}},
-      success: function(data) {
-      }
-  });
-}
 
 
       
