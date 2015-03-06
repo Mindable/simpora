@@ -18,6 +18,7 @@ Rails.application.routes.draw do
           post :add_batch
           get :batch_products
           post :validate_batch
+          post :update_products
         end
       end        
     end

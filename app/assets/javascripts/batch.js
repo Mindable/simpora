@@ -191,17 +191,39 @@ $(document).ready(function(){
 
     if(this.checked){
       $('.select-product').prop('checked', true);
-      $('.check-box-update').show('slow')
+      $('.check-box-update').show()
     }
     else{
       $('.select-product').prop('checked', false);
-      $('.check-box-update').hide('slow')
+      $('.check-box-update').hide()
     }
   });
 
-  $('.listing-table').on('click', '.product-delete-btn', function(e){
-    var products = $(e.target);
 
+  $('.listing-table').on('click', '.select-product', function(e){
+    var selected_product = $(e.target);
+
+    if(this.checked  && $('.all-products').not(":checked")){
+      $('.check-box-update').show()
+    }
   });
+
+  $('.product-delete-btn').on('click', function(e){
+    var action_type = $(e.target);
+    e.preventDefault(); 
+    getAllCheckedProductIds();  
+    $('#product_ids').val(getAllCheckedProductIds);
+    $('#action_type').val(action_type.val());
+    $('#delet_form').unbind().submit(); 
+   });
+
+  function getAllCheckedProductIds(){
+    var checked = []; 
+    $('.select-product').map(function() {
+        if (this.checked) 
+        checked.push(this.value);
+    });
+    return checked;
+  }
 
 });

@@ -3,8 +3,16 @@
 <%= link_to 'View Categories', categories_path %>
 <h2>List of Products</h2>
 <div class="check-box-update">
-  <%= select_tag :status, options_for_select(Product::STATUS_VALUES), {prompt: "Change Status"} %>
-  <%= button_tag("Delete all Products ",type: 'button', class: "product-delete-btn")%>
+  <%= form_tag(update_products_products_path, id: "delet_form") do %>
+    <%= hidden_field_tag(:product_ids, id:"product_ids")%>
+    <%= hidden_field_tag(:action_type, id:"action_type") %>
+  <% end %>
+
+  <%= button_tag("active",type: 'button', value: Product::STATUS_VALUES[:active],class: "product-delete-btn")%>
+  <%= button_tag("inactive",type: 'button', value: Product::STATUS_VALUES[:inactive],class: "product-delete-btn")%>
+  <%= button_tag("archived",type: 'button', value: Product::STATUS_VALUES[:archived],class: "product-delete-btn")%>
+  <%= button_tag("Delete",type: 'button', value: "delete", class: "product-delete-btn")%>
+
 </div>
 <%= search_form_for @q do |f| %>
   <div class="field">
@@ -38,10 +46,10 @@
     <% recurring = product.is_recurring? ? "yes" : "no" %>
     <% trial = product.has_trial? ? "yes" : "no" %>  
     <tr id = "product<%=product.id%>">
-      <td><%= check_box_tag 'remember_me', "#{product.id}", false, :class => 'select-product' %></td>
+      <td><%= check_box_tag 'remember_me', "#{product.id}", false, class:'select-product' %></td>
       <td><%= product.name %></td>
       <td><%= number_to_currency(product.price) %></td>
-      <td><%= status %></td>
+      <td id = "status<%=product.id%>" ><%= status %></td>
       <td><%= recurring %></td>
       <td><%= trial%></td>
       <td><%= link_to 'Edit', edit_product_path(product) %></td>

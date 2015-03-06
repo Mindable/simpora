@@ -81,6 +81,15 @@ class ProductsController < AdminsController
     @product.destroy
   end
 
+  def update_products
+    @products = Product.where(id: params[:product_ids].split(",") )
+    if params[:action_type] == "delete"
+      @products.destroy_all  
+    else
+      @products.update_all(status: params[:action_type])
+    end  
+    redirect_to products_path
+  end 
   private
   def product_params
     params.require(:product).permit(:name, :description, :category_ids, :status, :price, 
