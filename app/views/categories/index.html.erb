@@ -54,8 +54,7 @@
       <td><%= no_of_products%></td>
       <td><a href="#" class="edit-category" data-id="<%= category.id %>">Edit</a></td>
       <td><%= link_to 'Delete', category_path(category),
-              method: :delete,:remote => true,
-              data: { confirm: 'Are you sure?' } %></td>
+              method: :delete, data: { confirm: 'Are you sure?' } %></td>
     </tr>
   <% end %>
   <div class="page_info">

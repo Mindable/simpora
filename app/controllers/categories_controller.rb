@@ -36,6 +36,7 @@ class CategoriesController < AdminsController
   def destroy
     @category = Category.find(params[:id])
     @category.destroy
+    respond_to categories_path
   end
 
   private

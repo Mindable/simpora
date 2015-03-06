@@ -3,6 +3,7 @@ class ProductsController < AdminsController
   def index
     @q = Product.ransack(params[:q])
     @products = @q.result(distict: true).paginate(page: params[:page], per_page: 10)
+    @categories = Category.all
   end
 
   def new

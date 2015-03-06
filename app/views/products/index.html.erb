@@ -1,6 +1,56 @@
 <div class="listing-table">
 <%= link_to 'Add new product', new_product_path%>
 <%= link_to 'View Categories', categories_path %>
+
+
+
+<div id="filters"> 
+  <li class="dropdown">
+    <a id="drop1" href="#" class="dropdown-toggle" data-toggle="dropdown" aria-haspopup="true" role="button" aria-expanded="false">
+      Filter Products
+      <span class="caret"></span>
+    </a>
+
+  <ul class="dropdown-menu" role="menu" aria-labelledby="drop1">
+    <li role="presentation">
+      <a href="#"><label><input type="checkbox" id="dropdown-category-box">Category</label></a>
+      <ul class="dropdown-menu1" style="display:block;" >
+        <% @categories.each do |category| %>
+          <li>
+            <%= button_tag("#{category.name}",type: 'button', value: "#{category.id}", class: "category_search")%>
+          </li>
+        <%end%>
+      </ul>  
+    <li role="presentation">
+      <a href="#"><label><input type="checkbox" id="dropdown-status-box">Status</label></a>
+      <ul class="dropdown-menu" style="display:block;" >
+        <% Product::STATUS_VALUES.each do |key,value| %>
+          <li>
+            <%status_id = value%>
+            <%= button_tag("#{key}",type: 'button',value: status_id, class: "status_search")%>
+          </li>
+        <%end%>
+      </ul>
+    </li>
+    <li role="presentation">
+      <a href="#"><label><input type="checkbox" id="dropdown-recurring-box">Recurring</label>
+
+        <ul class="dropdown-menu" style="display:block;" >
+          <li>
+           <%= button_tag("Yes",type: 'button',value: true, class: "recurring_search")%>
+            <%= button_tag("No",type: 'button',value: false, class: "recurring_search")%>
+          </li>
+      </ul>
+
+      </a>
+    </li>
+  </ul>
+
+</li>
+
+
+</div>
+
 <h2>List of Products</h2>
 <div class="check-box-update">
   <%= form_tag(update_products_products_path, id: "delet_form") do %>
@@ -14,9 +64,9 @@
   <%= button_tag("Delete",type: 'button', value: "delete", class: "product-delete-btn")%>
 
 </div>
-<%= search_form_for @q do |f| %>
   <div class="field">
   </div>
+<%= search_form_for @q, html: {id: "search_form"} do |f| %>
 <table class="table table-striped table-bordered">
   <tr>
     <th><%= check_box_tag 'remember_me', '1', false, :class => 'all-products' %></th>
@@ -30,6 +80,7 @@
   <tr>
     <td></td>
     <td><%= f.text_field :name_cont%></td>
+    <%= f.hidden_field(:categories_id_eq, id:"category_id") %>
     <td><%= f.text_field :price_cont%></td>
     <td><%= f.select :status_eq, Product::STATUS_VALUES, include_blank: true%></td>
     <td><%= f.select :is_recurring_eq, [['Yes', true], ['No', false]], include_blank: true %></td>
